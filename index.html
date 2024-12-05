@@ -8,6 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -21,6 +22,12 @@
             max-width: 100%;
             height: auto;
         }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -30,24 +37,36 @@
             您的浏览器不支持 HTML5 视频标签。
         </video>
     </div>
+    <div style="display: flex; justify-content: space-around; width: 100%;">
+        <button onclick="playPreviousVideo()">播放上一个视频</button>
+        <button onclick="playNextVideo()">播放下一个视频</button>
+    </div>
 
     <script>
         const video = document.getElementById('myVideo');
         const videos = [
             'https://files.catbox.moe/myugl1.mp4',
             'https://files.catbox.moe/k1df9m.mp4',
-            'https://files.catbox.moe/4egrrz.mp4' // 添加更多视频文件路径
+            'https://files.catbox.moe/4egrrz.mp4',
+            'https://files.catbox.moe/fl9lua.mp4',
+            'https://files.catbox.moe/bpuwkt.mp4',
+            'https://files.catbox.moe/liukhr.mp4',
+            'https://files.catbox.moe/zll49k.mp4',
+            'https://files.catbox.moe/sig3pq.mp4',
+            'https://files.catbox.moe/hdrgtm.mp4',
+            'https://files.catbox.moe/kv7iwr.mp4',
+            'https://files.catbox.moe/lebx1u.mp4',// 添加更多视频文件路径
         ];
         let currentVideoIndex = 0;
 
-        window.addEventListener('scroll', () => {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                playNextVideo();
-            }
-        });
-
         function playNextVideo() {
             currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            video.src = videos[currentVideoIndex];
+            video.play();
+        }
+
+        function playPreviousVideo() {
+            currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
             video.src = videos[currentVideoIndex];
             video.play();
         }
