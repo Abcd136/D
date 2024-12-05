@@ -12,7 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #000; /* 设置背景为黑色 */
         }
         .video-container {
             text-align: center;
@@ -26,7 +26,7 @@
 <body>
     <div class="video-container">
         <video id="myVideo" width="640" height="360" controls>
-            <source src="your-first-video-file.mp4" type="video/mp4">
+            <source src="https://files.catbox.moe/fl9lua.mp4" type="video/mp4">
             您的浏览器不支持 HTML5 视频标签。
         </video>
     </div>
@@ -34,9 +34,9 @@
     <script>
         const video = document.getElementById('myVideo');
         const videos = [
-            'https://files.catbox.moe/4egrrz.mp4',
+            'https://files.catbox.moe/myugl1.mp4',
             'https://files.catbox.moe/k1df9m.mp4',
-            'https://files.catbox.moe/fl9lua.mp4' // 添加更多视频文件路径
+            'https://files.catbox.moe/4egrrz.mp4' // 添加更多视频文件路径
         ];
         let currentVideoIndex = 0;
 
