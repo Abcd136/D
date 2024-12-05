@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刷视频页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .video-container {
+            text-align: center;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video id="myVideo" width="640" height="360" controls>
+            <source src="your-first-video-file.mp4" type="video/mp4">
+            您的浏览器不支持 HTML5 视频标签。
+        </video>
+    </div>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        const videos = [
+            'https://files.catbox.moe/4egrrz.mp4',
+            'https://files.catbox.moe/k1df9m.mp4',
+            'https://files.catbox.moe/fl9lua.mp4' // 添加更多视频文件路径
+        ];
+        let currentVideoIndex = 0;
+
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                playNextVideo();
+            }
+        });
+
+        function playNextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            video.src = videos[currentVideoIndex];
+            video.play();
+        }
+    </script>
+</body>
+</html>
